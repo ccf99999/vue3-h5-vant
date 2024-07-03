@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { Button } from 'vant'
+console.log(88888)
+const hh = ref(777)
+console.log(hh)
 </script>
 
 <template>
-  <div>
-    <Button>环境</Button>
-  </div>
+  <!-- 路由出口-一级路由 -->
+  <router-view></router-view>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

@@ -13,6 +13,9 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   rules: {
+    quotes: [2, 'single'],
+    // 'no-unused-vars':'off',
+
     'prettier/prettier': [
       'warn',
       {
@@ -29,8 +32,8 @@ module.exports = {
         ignores: ['index']
       }
     ],
-    'vue/no-setup-props-destructure': ['off'],
-    // 💡 添加未定义变量错误提示，create-vue@3.6.3 关闭，这里加上是为了支持下一个章节演示。
-    'no-undef': 'error'
+    'vue/no-setup-props-destructure': ['off']
+    // // 💡 添加未定义变量错误提示，create-vue@3.6.3 关闭，
+    // 'no-undef': 'error'
   }
 }

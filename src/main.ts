@@ -1,5 +1,9 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import pinia from './stores'
+// import persist from 'pinia-plugin-persistedstate'
+
+import 'virtual:svg-icons-register'
+
 import 'vant/lib/index.css'
 import './styles/main.scss'
 
@@ -8,7 +12,7 @@ import router from './router'
 
 const app = createApp(App)
 
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
 
 app.mount('#app')

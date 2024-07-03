@@ -13,7 +13,16 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "@vitejs/plugin-legacy": "^5.4.1",
+    "@vueuse/core": "^10.11.0",
+    "axios": "^1.7.2",
+    "dayjs": "^1.11.11",
+    "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
+    "qs": "^6.12.1",
+    "socket.io-client": "^4.7.5",
     "vant": "^4.9.1",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
@@ -33,8 +42,12 @@
     "prettier": "^3.2.5",
     "sass": "^1.77.6",
     "scss": "^0.2.4",
+    "terser": "^5.31.1",
     "typescript": "~5.4.0",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-vue-components": "^0.27.2",
     "vite": "^5.3.1",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-devtools": "^7.3.1",
     "vue-tsc": "^2.0.21"
   }
