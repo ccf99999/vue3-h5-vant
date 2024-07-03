@@ -53,3 +53,7 @@ npm run lint
 # pay
 
 ## jfjbwb4477@sandbox.com    111111
+
+
+# 提交代码 
+## git push origin master
