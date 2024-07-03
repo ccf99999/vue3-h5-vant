@@ -39,3 +39,17 @@ npm run lint
 ```
 
 ### pnpm lint
+
+
+# pm2
+## npm i pm2 -g
+## 启动服务  cd dist  -->>  pm2 serve --spa ./ 8080 --name my-pro
+## pm2 list
+## 关闭服务 pm2 delete my-...  服务名
+
+
+# 部署  gitlab
+
+# pay
+
+## jfjbwb4477@sandbox.com    111111

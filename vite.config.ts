@@ -15,9 +15,12 @@ import path from 'path'
 // 必须安装 Terser，因为旧版插件使用 Terser 进行缩小
 import legacy from '@vitejs/plugin-legacy'
 
+import { createHtmlPlugin } from 'vite-plugin-html'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    createHtmlPlugin(),
     vue(),
     vueDevTools(),
     // 样式重复引入，类型声明文件重复;按需引入vant组件
@@ -27,6 +30,7 @@ export default defineConfig({
     }),
     //自动导入依赖,比如使用ref reactive时候，不需要import
     AutoImport({
+      dts: 'types/auto-imports.d.ts',
       imports: [
         'vue',
         'vue-router',
@@ -35,6 +39,20 @@ export default defineConfig({
           axios: [['default', 'axios']]
         }
       ],
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+        /\.md$/ // .md
+      ],
+      // 解决eslint报错问题
+      eslintrc: {
+        // 这里先设置成true然后npm run dev 运行之后会生成 .eslintrc-auto-import.json 文件之后，在改为false
+        enabled: false,
+        filepath: './.eslintrc-auto-import.json', // 生成的文件路径
+        globalsPropValue: true
+      },
+
       resolvers: [VantResolver()]
     }),
     //兼容
@@ -75,7 +93,7 @@ export default defineConfig({
   // },
 
   resolve: {
-    // extensions: ['.js', '.ts', '.json', '.tsx', '.mjs', '.d.ts'],
+    // extensions: ['.vue', '.js', '.ts', '.json', '.tsx', '.mjs'],
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }

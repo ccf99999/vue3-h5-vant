@@ -63,15 +63,16 @@ const show = ref(false)
 const loading = ref(false)
 const orderId = ref('')
 const submit = async () => {
+  console.log('pay')
   if (!agree.value) return showToast('请勾选我同意支付协议')
   loading.value = true
   // 发送生成订单的请求
-  const res = await createConsultOrder(store.consult)
-  loading.value = false
-  store.clear()
-  orderId.value = res.data.id
+  // const res = await createConsultOrder(store.consult)
+  // loading.value = false
+  // store.clear()
+  // orderId.value = res.data.id
 
-  show.value = true
+  // show.value = true
 }
 
 // 提示1：取消支付将无法获得医生回复，医生接诊名额有限，是否确认关闭？
@@ -153,7 +154,7 @@ const onClose = () => {
   </div>
   <div class="consult-pay-page" v-else>
     <cp-nav-bar title="支付" />
-    <!-- 骨架组件 -->
+    <!-- 骨架屏组件 -->
     <van-skeleton title :row="10" style="margin-top: 18px" />
   </div>
 </template>

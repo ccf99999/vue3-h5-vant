@@ -16,3 +16,5 @@ app.use(pinia)
 app.use(router)
 
 app.mount('#app')
+
+console.log(888888889999999, import.meta.env.VITE_API_BASEURL)

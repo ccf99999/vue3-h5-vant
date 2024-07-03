@@ -16,5 +16,6 @@ declare const QC: QCType
 interface ImportMetaEnv {
   VITE_APP_CALLBACK: string
   VITE_APP_TITLE: string
+  VITE_API_BASEURL: string
   [propsName: string]: any
 }
