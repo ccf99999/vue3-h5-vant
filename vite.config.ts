@@ -17,9 +17,17 @@ import legacy from '@vitejs/plugin-legacy'
 
 import { createHtmlPlugin } from 'vite-plugin-html'
 
+import { viteMockServe } from 'vite-plugin-mock'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    viteMockServe({
+      // 在哪个文件夹下编写模拟接口的代码
+      mockPath: './src/mock',
+      // 在开发环境开启mock
+      localEnabled: true
+    }),
     createHtmlPlugin(),
     vue(),
     vueDevTools(),

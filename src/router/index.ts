@@ -103,12 +103,12 @@ const router = createRouter({
         {
           path: '/article',
           component: () => import('@/views/Article/index.vue'),
-          meta: { title: '健康百科' }
+          meta: { title: 'gsap' }
         },
         {
           path: '/notify',
           component: () => import('@/views/Notify/index.vue'),
-          meta: { title: '消息通知' }
+          meta: { title: '数据可视化' }
         },
         {
           path: '/user',

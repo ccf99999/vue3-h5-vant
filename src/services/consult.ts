@@ -13,7 +13,7 @@ import type {
   PartialConsult,
   TopDep
 } from '@/types/consult'
-import { request } from '@/utils/request'
+import { request } from '@/services/request'
 
 export const getKnowledgePage = (params: KnowledgeParams) =>
   request<KnowledgePage>('patient/home/knowledge', 'GET', params)

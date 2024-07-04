@@ -4,7 +4,7 @@ import type {
   OrderDetail,
   OrderPre
 } from '@/types/order'
-import { request } from '@/utils/request'
+import { request } from '@/services/request'
 
 export const getMedicalOrderPre = (params: { prescriptionId: string }) =>
   request<OrderPre>('patient/medicine/order/pre', 'GET', params)

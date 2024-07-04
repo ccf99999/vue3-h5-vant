@@ -14,6 +14,8 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+## 创建项目 npm create vue
+
 ## Project Setup
 
 ```sh

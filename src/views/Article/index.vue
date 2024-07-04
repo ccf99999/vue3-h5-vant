@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import gasp from 'gsap'
+</script>
 
 <template>
   <div class="article-page">article</div>

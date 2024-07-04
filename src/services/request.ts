@@ -3,7 +3,9 @@ import { useUserStore } from '@/stores'
 import axios, { AxiosError, type Method } from 'axios'
 import { showToast } from 'vant'
 
-export const baseURL = ''
+const { MODE } = import.meta.env
+//开发环境mock数据
+export const baseURL = MODE === 'development' ? '/' : 'https://....'
 
 const instance = axios.create({
   // 1. 基础地址，超时时间

@@ -6,6 +6,7 @@ import { codeRules, mobileRules, passwordRules } from '@/utils/rules'
 import { showSuccessToast, showToast } from 'vant'
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { request } from '@/services/request'
 
 const mobile = ref('13211112222')
 const password = ref('abc12345')
@@ -16,13 +17,19 @@ const router = useRouter()
 const route = useRoute()
 const onSubmit = async () => {
   if (!agree.value) return showToast('请勾选协议')
+
+  // request('/patient/message/sys/list').then((res) => {
+  //   console.log(898989, res)
+  // })
+
   // 进行登录(合并短信登录)
   const res = isPass.value
     ? await loginByPassword(mobile.value, password.value)
     : await loginByMobile(mobile.value, code.value)
+
   store.setUser(res.data)
   showSuccessToast('登录成功')
-  router.replace((route.query.returnUrl as string) || '/user')
+  // router.replace((route.query.returnUrl as string) || '/user')
 }
 
 // 短信登录界面切换

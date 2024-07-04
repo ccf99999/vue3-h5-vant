@@ -22,14 +22,14 @@ onMounted(async () => {
         </template>
       </van-tabbar-item>
       <van-tabbar-item to="/article">
-        健康百科
+        gsap
         <template #icon="{ active }">
           <cp-icon :name="`home-article-${active ? 'active' : 'default'}`">
           </cp-icon>
         </template>
       </van-tabbar-item>
       <van-tabbar-item to="/notify" :badge="count || ''">
-        消息通知
+        数据可视化
         <template #icon="{ active }">
           <cp-icon :name="`home-notice-${active ? 'active' : 'default'}`">
           </cp-icon>
