@@ -8,6 +8,11 @@ import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { request } from '@/services/request'
 
+const env = import.meta.env
+
+console.log('import.meta', import.meta)
+console.log('import.meta', import.meta.env)
+
 const mobile = ref('13211112222')
 const password = ref('abc12345')
 const agree = ref(false)
@@ -29,7 +34,7 @@ const onSubmit = async () => {
 
   store.setUser(res.data)
   showSuccessToast('登录成功')
-  // router.replace((route.query.returnUrl as string) || '/user')
+  router.replace((route.query.returnUrl as string) || '/user')
 }
 
 // 短信登录界面切换
@@ -49,10 +54,8 @@ const url =
 
 <template>
   <div class="login-page">
-    <cp-nav-bar
-      right-text="注册"
-      @click-right="$router.push('/register')"
-    ></cp-nav-bar>
+    <cp-nav-bar right-text="注册" @click-right="$router.push('/register')"></cp-nav-bar>
+    <h3>这是{{ env.VITE_ENV }}环境</h3>
     <!-- 头部 -->
     <div class="login-head">
       <h3>{{ isPass ? '密码登录' : '短信验证码登录' }}</h3>
@@ -87,12 +90,7 @@ const url =
           ></cp-icon>
         </template>
       </van-field>
-      <van-field
-        v-else
-        :rules="codeRules"
-        placeholder="短信验证码"
-        v-model="code"
-      >
+      <van-field v-else :rules="codeRules" placeholder="短信验证码" v-model="code">
         <template #button>
           <span class="btn-send" :class="{ active: time > 0 }" @click="onSend">
             {{ time > 0 ? `${time}s后再次发送` : '发送验证码' }}
@@ -108,25 +106,19 @@ const url =
         </van-checkbox>
       </div>
       <div class="cp-cell">
-        <van-button native-type="submit" block round type="primary">
-          登 录
-        </van-button>
+        <van-button native-type="submit" block round type="primary"> 登 录 </van-button>
       </div>
       <div class="cp-cell">
         <a href="javascript:;">忘记密码？</a>
       </div>
     </van-form>
     <!-- 底部 -->
-    <div class="login-other">
+    <!-- <div class="login-other">
       <van-divider>第三方登录</van-divider>
-      <a
-        @click="store.setReturnUrl(route.query.returnUrl as string)"
-        class="icon"
-        :href="url"
-      >
+      <a @click="store.setReturnUrl(route.query.returnUrl as string)" class="icon" :href="url">
         <img src="@/assets/qq.svg" alt="" />
       </a>
-    </div>
+    </div> -->
   </div>
 </template>
 

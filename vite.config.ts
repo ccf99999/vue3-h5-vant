@@ -24,9 +24,9 @@ export default defineConfig({
   plugins: [
     viteMockServe({
       // 在哪个文件夹下编写模拟接口的代码
-      mockPath: './src/mock',
+      mockPath: './src/mock'
       // 在开发环境开启mock
-      localEnabled: true
+      // localEnabled: true
     }),
     createHtmlPlugin(),
     vue(),
