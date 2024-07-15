@@ -1,6 +1,6 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
@@ -24,6 +24,12 @@ import viteCompression from 'vite-plugin-compression'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
+  // process.env = {...process.env,...loadEnv(mode,process.cwd())}
+  const env = loadEnv(mode, process.cwd(), '')
+  // console.log('env', env.VITE_ENV, env)
+  //是否为生产环境
+  const isProdEnv = env.VITE_ENV === 'production'
+
   return {
     esbuild: {
       drop: ['console', 'debugger'] // 删除 所有的console 和 debugger
@@ -126,7 +132,8 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
           }
         }
       },
-      sourcemap: mode === 'production' ? false : true
+      //生产环境关闭sourcemap
+      sourcemap: isProdEnv ? false : true
     },
 
     resolve: {
